@@ -1,0 +1,150 @@
+:root {
+    --gradinet-dark: #3d405b;
+    --gradinet-light: #778da9;
+    --accent-color: #415a77;
+    --card-background: #f7f2ee;
+    --popular-color: #fcbf49;
+    --border-color: grey;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+
+}
+
+body {
+    margin: 0;
+    background-color: white;
+    font-family: 'Roboto', sans-serif;
+    overflow-x: hidden;
+}
+
+main {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+}
+
+main::before {
+    content: "";
+    background: var(--gradinet-dark);
+    background: linear-gradient(115deg, var(--gradinet-dark) 53%, var(--gradinet-light) 100%);
+    width: 100vw;
+    height: 60%;
+    z-index: -1;
+    position: absolute;
+    top: 0;
+}
+
+.card {
+    width: 16em;
+    height: auto;
+    background-color: var(--card-background);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    border-radius: 5px;
+}
+
+
+h2 {
+    font-size: 1.4rem;
+    color: var(--accent-color);
+}
+
+h3 {
+    font-size: 2.4rem;
+    margin: .5em 0;
+}
+
+section {
+    text-align: left;
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+    width: 100%;
+    padding: 10px 20px;
+}
+
+p {
+    display: flex;
+    align-items: center;
+    gap: .5em;
+    font-size: 0.9em;
+    font-weight: 500;
+    width: 100%;
+}
+
+p img {
+    height: 1.5em;
+    width: auto;
+}
+
+.non-active {
+    opacity: 0.3;
+}
+
+
+footer {
+    padding: 1.5em 0;
+}
+
+button {
+    border: 1px solid var(--accent-color);
+    border-radius: 200px;
+    padding: 0.7em 1em;
+    font-weight: 700;
+    background-color: white;
+    transition: background-color 200ms ease-in-out;
+}
+
+button:hover,
+button:focus {
+    background-color: var(--accent-color);
+    color: white;
+}
+
+.card-popular {
+    position: relative;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.card-popular::before {
+    content: "MOST POPULAR";
+    background-color: var(--popular-color);
+    width: 100%;
+    position: absolute;
+    top: -1.6em;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    padding: .2em 0;
+    font-size: .8em;
+
+}
+
+@media only screen and (max-width: 840px) {
+    main {
+        height: auto;
+        width: 100%;
+        margin: 20px 0;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    main::before {
+        height: 80%;
+    }
+
+    .card-popular {
+        margin-top: 20px;
+    }
+}
